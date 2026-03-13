@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Must-Watch TV Shows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  color: #fff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 4px;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, #e50914 50%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  margin-top: 16px;
+  font-size: 18px;
+  color: #888;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* ── Grid ─────────────────────────────────── */
+.grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+/* ── Card ─────────────────────────────────── */
+.card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #141414;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+/* Image */
+.card-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.08);
+  filter: brightness(0.7);
+}
+
+.card-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, #141414, transparent);
+  pointer-events: none;
+}
+
+/* Badge */
+.card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+}
+
+/* Rating */
+.card-rating {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.card-rating .star {
+  color: #ffd700;
+}
+
+/* Body */
+.card-body {
+  padding: 20px 24px 28px;
+}
+
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.card-meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.card-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #aaa;
+  font-weight: 300;
+}
+
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #ccc;
+  background: rgba(255,255,255,0.04);
+}
+
+/* ── Per-card accent colors ───────────────── */
+.card-nazis .card-badge { background: rgba(180, 30, 30, 0.85); color: #fff; }
+.card-nazis .card-title { color: #e8413a; }
+.card-nazis .tag { border-color: rgba(232, 65, 58, 0.3); color: #e8413a; }
+
+.card-crown .card-badge { background: rgba(180, 150, 60, 0.85); color: #fff; }
+.card-crown .card-title { color: #d4a843; }
+.card-crown .tag { border-color: rgba(212, 168, 67, 0.3); color: #d4a843; }
+
+.card-wild .card-badge { background: rgba(180, 100, 40, 0.85); color: #fff; }
+.card-wild .card-title { color: #e88a3a; }
+.card-wild .tag { border-color: rgba(232, 138, 58, 0.3); color: #e88a3a; }
+
+.card-scam .card-badge { background: rgba(40, 120, 180, 0.85); color: #fff; }
+.card-scam .card-title { color: #4a9ede; }
+.card-scam .tag { border-color: rgba(74, 158, 222, 0.3); color: #4a9ede; }
+
+/* ── Footer ───────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  color: #444;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; padding: 40px 16px 80px; gap: 24px; }
+  .hero { padding: 60px 16px 40px; }
+  .card-img { height: 220px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Must-Watch TV</h1>
+  <p>Four shows that will leave you thinking for days</p>
+</div>
+
+<div class="grid">
+
+  <!-- 1. Hitler and the Nazis -->
+  <div class="card card-nazis">
+    <div class="card-img-wrap">
+      <img class="card-img" src="https://images.unsplash.com/photo-1590832188165-1ff6c6d8e755?w=800&q=80" alt="Historical WWII memorial">
+      <span class="card-badge">Documentary</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 7.1</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Hitler and the Nazis: Evil on Trial</div>
+      <div class="card-meta">
+        <span>2024</span>
+        <span class="dot"></span>
+        <span>1 Season</span>
+        <span class="dot"></span>
+        <span>Netflix</span>
+      </div>
+      <div class="card-desc">
+        A chronicle of Hitler's ascent to power, his regime's use of propaganda, censorship, and anti-Semitic policies, as well as the eventual downfall of the Nazi leadership.
+      </div>
+      <div class="card-tags">
+        <span class="tag">History</span>
+        <span class="tag">WWII</span>
+        <span class="tag">True Events</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. The Crown -->
+  <div class="card card-crown">
+    <div class="card-img-wrap">
+      <img class="card-img" src="https://images.pexels.com/photos/19652291/pexels-photo-19652291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Royal Guard at Buckingham Palace">
+      <span class="card-badge">Drama</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 8.6</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">The Crown</div>
+      <div class="card-meta">
+        <span>2016 &ndash; 2023</span>
+        <span class="dot"></span>
+        <span>6 Seasons</span>
+        <span class="dot"></span>
+        <span>Netflix</span>
+      </div>
+      <div class="card-desc">
+        After the king's sudden death, Elizabeth's seemingly quiet life is rattled with personal trials and tribulations and the affairs of the state as she succeeds to the throne of the British monarchy.
+      </div>
+      <div class="card-tags">
+        <span class="tag">Royalty</span>
+        <span class="tag">Biography</span>
+        <span class="tag">Political</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Wild Wild Country -->
+  <div class="card card-wild">
+    <div class="card-img-wrap">
+      <img class="card-img" src="https://images.unsplash.com/photo-1683922661133-84efbda5c5fa?w=800&q=80" alt="Oregon desert landscape">
+      <span class="card-badge">Docuseries</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 8.2</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Wild Wild Country</div>
+      <div class="card-meta">
+        <span>2018</span>
+        <span class="dot"></span>
+        <span>1 Season</span>
+        <span class="dot"></span>
+        <span>Netflix</span>
+      </div>
+      <div class="card-desc">
+        When a controversial guru builds a utopian city in the Oregon desert, it causes a massive conflict with local ranchers. This docuseries chronicles the first bioterror attack in the United States and a massive case of illegal wiretapping.
+      </div>
+      <div class="card-tags">
+        <span class="tag">True Crime</span>
+        <span class="tag">Cult</span>
+        <span class="tag">Religion</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Scam 1992 -->
+  <div class="card card-scam">
+    <div class="card-img-wrap">
+      <img class="card-img" src="https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stock market trading graph">
+      <span class="card-badge">Thriller</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 9.3</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Scam 1992: The Harshad Mehta Story</div>
+      <div class="card-meta">
+        <span>2020</span>
+        <span class="dot"></span>
+        <span>1 Season</span>
+        <span class="dot"></span>
+        <span>SonyLIV</span>
+      </div>
+      <div class="card-desc">
+        Harshad Mehta took the stock market to dizzying heights and had a catastrophic downfall. Based on true events of the 1992 Indian securities scam that shook the nation's financial system to its core.
+      </div>
+      <div class="card-tags">
+        <span class="tag">Finance</span>
+        <span class="tag">True Story</span>
+        <span class="tag">Crime</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Made with care &middot; 2026
+</div>
+
+</body>
+</html>
