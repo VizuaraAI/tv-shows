@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Must-Watch TV Shows</title>
+<title>4 Options for Date Night</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #0a0a0a;
-  color: #fff;
+  background: #faf8f5;
+  color: #2a2a2a;
   font-family: 'Inter', -apple-system, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
@@ -20,76 +20,107 @@ body {
 /* ── Hero ─────────────────────────────────── */
 .hero {
   text-align: center;
-  padding: 80px 24px 60px;
+  padding: 72px 24px 52px;
   position: relative;
+  background: linear-gradient(180deg, #fff5ee 0%, #faf8f5 100%);
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+.hero-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
 }
 
 .hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 8vw, 96px);
-  letter-spacing: 4px;
-  line-height: 1;
-  background: linear-gradient(135deg, #fff 0%, #e50914 50%, #ff6b35 100%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.hero h1 span {
+  font-style: italic;
+  background: linear-gradient(135deg, #e85d75 0%, #ff8a65 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero p {
-  margin-top: 16px;
+  margin-top: 14px;
   font-size: 18px;
   color: #888;
-  font-weight: 300;
-  letter-spacing: 1px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #e85d75, #ff8a65);
+  border-radius: 2px;
+  margin: 32px auto 0;
 }
 
 /* ── Grid ─────────────────────────────────── */
 .grid {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px 100px;
+  padding: 48px 24px 80px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
 
 /* ── Card ─────────────────────────────────── */
 .card {
   position: relative;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  background: #141414;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+/* Number badge */
+.card-number {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #1a1a1a;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 /* Image */
 .card-img {
   width: 100%;
-  height: 280px;
+  height: 360px;
   object-fit: cover;
+  object-position: top center;
   display: block;
-  transition: transform 0.6s ease, filter 0.4s ease;
+  transition: transform 0.6s ease;
 }
 
 .card:hover .card-img {
-  transform: scale(1.08);
-  filter: brightness(0.7);
+  transform: scale(1.04);
 }
 
 .card-img-wrap {
@@ -103,8 +134,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120px;
-  background: linear-gradient(to top, #141414, transparent);
+  height: 80px;
+  background: linear-gradient(to top, #fff, transparent);
   pointer-events: none;
 }
 
@@ -112,36 +143,40 @@ body {
 .card-badge {
   position: absolute;
   top: 16px;
-  left: 16px;
+  right: 16px;
   padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 12px;
+  border-radius: 8px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   z-index: 2;
   backdrop-filter: blur(8px);
+  color: #fff;
 }
 
 /* Rating */
 .card-rating {
   position: absolute;
-  top: 16px;
+  bottom: 16px;
   right: 16px;
   display: flex;
   align-items: center;
   gap: 4px;
   padding: 5px 10px;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(8px);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   z-index: 2;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .card-rating .star {
-  color: #ffd700;
+  color: #f5a623;
+  font-size: 15px;
 }
 
 /* Body */
@@ -150,11 +185,12 @@ body {
 }
 
 .card-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 1.5px;
-  line-height: 1.1;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
   margin-bottom: 6px;
+  color: #1a1a1a;
 }
 
 .card-meta {
@@ -162,7 +198,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #888;
+  color: #999;
   margin-bottom: 14px;
   flex-wrap: wrap;
 }
@@ -171,14 +207,14 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #555;
+  background: #ccc;
 }
 
 .card-desc {
   font-size: 14px;
-  line-height: 1.7;
-  color: #aaa;
-  font-weight: 300;
+  line-height: 1.75;
+  color: #666;
+  font-weight: 400;
 }
 
 .card-tags {
@@ -189,144 +225,67 @@ body {
 }
 
 .tag {
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  border: 1px solid rgba(255,255,255,0.12);
-  color: #ccc;
-  background: rgba(255,255,255,0.04);
+  letter-spacing: 0.3px;
 }
 
 /* ── Per-card accent colors ───────────────── */
-.card-nazis .card-badge { background: rgba(180, 30, 30, 0.85); color: #fff; }
-.card-nazis .card-title { color: #e8413a; }
-.card-nazis .tag { border-color: rgba(232, 65, 58, 0.3); color: #e8413a; }
+.card-scam .card-badge { background: rgba(37, 99, 163, 0.9); }
+.card-scam .tag { background: #eef4fb; color: #2563a3; }
+.card-scam .card-title { color: #1a3a5c; }
 
-.card-crown .card-badge { background: rgba(180, 150, 60, 0.85); color: #fff; }
-.card-crown .card-title { color: #d4a843; }
-.card-crown .tag { border-color: rgba(212, 168, 67, 0.3); color: #d4a843; }
+.card-nazis .card-badge { background: rgba(180, 40, 40, 0.9); }
+.card-nazis .tag { background: #fdf0f0; color: #a83232; }
+.card-nazis .card-title { color: #5c1a1a; }
 
-.card-wild .card-badge { background: rgba(180, 100, 40, 0.85); color: #fff; }
-.card-wild .card-title { color: #e88a3a; }
-.card-wild .tag { border-color: rgba(232, 138, 58, 0.3); color: #e88a3a; }
+.card-crown .card-badge { background: rgba(160, 130, 50, 0.9); }
+.card-crown .tag { background: #faf5e8; color: #8a6d1e; }
+.card-crown .card-title { color: #4a3a10; }
 
-.card-scam .card-badge { background: rgba(40, 120, 180, 0.85); color: #fff; }
-.card-scam .card-title { color: #4a9ede; }
-.card-scam .tag { border-color: rgba(74, 158, 222, 0.3); color: #4a9ede; }
+.card-wild .card-badge { background: rgba(190, 90, 30, 0.9); }
+.card-wild .tag { background: #fdf2e9; color: #b85a1e; }
+.card-wild .card-title { color: #5c2e10; }
 
 /* ── Footer ───────────────────────────────── */
 .footer {
   text-align: center;
   padding: 40px 24px;
-  color: #444;
+  color: #bbb;
   font-size: 13px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.footer span {
+  color: #e85d75;
 }
 
 /* ── Responsive ───────────────────────────── */
-@media (max-width: 700px) {
-  .grid { grid-template-columns: 1fr; padding: 40px 16px 80px; gap: 24px; }
-  .hero { padding: 60px 16px 40px; }
-  .card-img { height: 220px; }
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; padding: 32px 16px 60px; gap: 24px; }
+  .hero { padding: 56px 16px 36px; }
+  .card-img { height: 300px; }
 }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <h1>Must-Watch TV</h1>
-  <p>Four shows that will leave you thinking for days</p>
+  <div class="hero-emoji">&#127871;&#127909;</div>
+  <h1>4 Options for <span>Date Night</span></h1>
+  <p>Grab some popcorn, pick a show, and enjoy the evening together</p>
+  <div class="hero-divider"></div>
 </div>
 
 <div class="grid">
 
-  <!-- 1. Hitler and the Nazis -->
-  <div class="card card-nazis">
-    <div class="card-img-wrap">
-      <img class="card-img" src="https://images.unsplash.com/photo-1590832188165-1ff6c6d8e755?w=800&q=80" alt="Historical WWII memorial">
-      <span class="card-badge">Documentary</span>
-      <span class="card-rating"><span class="star">&#9733;</span> 7.1</span>
-    </div>
-    <div class="card-body">
-      <div class="card-title">Hitler and the Nazis: Evil on Trial</div>
-      <div class="card-meta">
-        <span>2024</span>
-        <span class="dot"></span>
-        <span>1 Season</span>
-        <span class="dot"></span>
-        <span>Netflix</span>
-      </div>
-      <div class="card-desc">
-        A chronicle of Hitler's ascent to power, his regime's use of propaganda, censorship, and anti-Semitic policies, as well as the eventual downfall of the Nazi leadership.
-      </div>
-      <div class="card-tags">
-        <span class="tag">History</span>
-        <span class="tag">WWII</span>
-        <span class="tag">True Events</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. The Crown -->
-  <div class="card card-crown">
-    <div class="card-img-wrap">
-      <img class="card-img" src="https://images.pexels.com/photos/19652291/pexels-photo-19652291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Royal Guard at Buckingham Palace">
-      <span class="card-badge">Drama</span>
-      <span class="card-rating"><span class="star">&#9733;</span> 8.6</span>
-    </div>
-    <div class="card-body">
-      <div class="card-title">The Crown</div>
-      <div class="card-meta">
-        <span>2016 &ndash; 2023</span>
-        <span class="dot"></span>
-        <span>6 Seasons</span>
-        <span class="dot"></span>
-        <span>Netflix</span>
-      </div>
-      <div class="card-desc">
-        After the king's sudden death, Elizabeth's seemingly quiet life is rattled with personal trials and tribulations and the affairs of the state as she succeeds to the throne of the British monarchy.
-      </div>
-      <div class="card-tags">
-        <span class="tag">Royalty</span>
-        <span class="tag">Biography</span>
-        <span class="tag">Political</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. Wild Wild Country -->
-  <div class="card card-wild">
-    <div class="card-img-wrap">
-      <img class="card-img" src="https://images.unsplash.com/photo-1683922661133-84efbda5c5fa?w=800&q=80" alt="Oregon desert landscape">
-      <span class="card-badge">Docuseries</span>
-      <span class="card-rating"><span class="star">&#9733;</span> 8.2</span>
-    </div>
-    <div class="card-body">
-      <div class="card-title">Wild Wild Country</div>
-      <div class="card-meta">
-        <span>2018</span>
-        <span class="dot"></span>
-        <span>1 Season</span>
-        <span class="dot"></span>
-        <span>Netflix</span>
-      </div>
-      <div class="card-desc">
-        When a controversial guru builds a utopian city in the Oregon desert, it causes a massive conflict with local ranchers. This docuseries chronicles the first bioterror attack in the United States and a massive case of illegal wiretapping.
-      </div>
-      <div class="card-tags">
-        <span class="tag">True Crime</span>
-        <span class="tag">Cult</span>
-        <span class="tag">Religion</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4. Scam 1992 -->
+  <!-- 1. Scam 1992 -->
   <div class="card card-scam">
     <div class="card-img-wrap">
-      <img class="card-img" src="https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stock market trading graph">
+      <div class="card-number">1</div>
+      <img class="card-img" src="images/scam1992.jpg" alt="Scam 1992 - Harshad Mehta">
       <span class="card-badge">Thriller</span>
       <span class="card-rating"><span class="star">&#9733;</span> 9.3</span>
     </div>
@@ -350,10 +309,94 @@ body {
     </div>
   </div>
 
+  <!-- 2. Hitler and the Nazis -->
+  <div class="card card-nazis">
+    <div class="card-img-wrap">
+      <div class="card-number">2</div>
+      <img class="card-img" src="images/hitler.jpg" alt="Hitler and the Nazis: Evil on Trial">
+      <span class="card-badge">Documentary</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 7.1</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Hitler and the Nazis: Evil on Trial</div>
+      <div class="card-meta">
+        <span>2024</span>
+        <span class="dot"></span>
+        <span>1 Season</span>
+        <span class="dot"></span>
+        <span>Netflix</span>
+      </div>
+      <div class="card-desc">
+        A chronicle of Hitler's ascent to power, his regime's use of propaganda, censorship, and anti-Semitic policies, as well as the eventual downfall of the Nazi leadership.
+      </div>
+      <div class="card-tags">
+        <span class="tag">History</span>
+        <span class="tag">WWII</span>
+        <span class="tag">True Events</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. The Crown -->
+  <div class="card card-crown">
+    <div class="card-img-wrap">
+      <div class="card-number">3</div>
+      <img class="card-img" src="images/crown.jpg" alt="The Crown">
+      <span class="card-badge">Drama</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 8.6</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">The Crown</div>
+      <div class="card-meta">
+        <span>2016 &ndash; 2023</span>
+        <span class="dot"></span>
+        <span>6 Seasons</span>
+        <span class="dot"></span>
+        <span>Netflix</span>
+      </div>
+      <div class="card-desc">
+        After the king's sudden death, Elizabeth's seemingly quiet life is rattled with personal trials and tribulations and the affairs of the state as she succeeds to the throne of the British monarchy.
+      </div>
+      <div class="card-tags">
+        <span class="tag">Royalty</span>
+        <span class="tag">Biography</span>
+        <span class="tag">Political</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Wild Wild Country -->
+  <div class="card card-wild">
+    <div class="card-img-wrap">
+      <div class="card-number">4</div>
+      <img class="card-img" src="images/wildwild.jpg" alt="Wild Wild Country">
+      <span class="card-badge">Docuseries</span>
+      <span class="card-rating"><span class="star">&#9733;</span> 8.2</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Wild Wild Country</div>
+      <div class="card-meta">
+        <span>2018</span>
+        <span class="dot"></span>
+        <span>1 Season</span>
+        <span class="dot"></span>
+        <span>Netflix</span>
+      </div>
+      <div class="card-desc">
+        When a controversial guru builds a utopian city in the Oregon desert, it causes a massive conflict with local ranchers. This docuseries chronicles the first bioterror attack in the United States and a massive case of illegal wiretapping.
+      </div>
+      <div class="card-tags">
+        <span class="tag">True Crime</span>
+        <span class="tag">Cult</span>
+        <span class="tag">Religion</span>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">
-  Made with care &middot; 2026
+  Made with <span>&hearts;</span> for date night &middot; 2026
 </div>
 
 </body>
